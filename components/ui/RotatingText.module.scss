@@ -1,0 +1,41 @@
+@use "../../styles/tokens" as *;
+
+.wrapper {
+    display: inline-grid;
+    vertical-align: bottom;
+    white-space: nowrap;
+}
+
+.sizer,
+.word {
+    grid-area: 1 / 1;
+}
+
+.sizer {
+    visibility: hidden;
+    pointer-events: none;
+    user-select: none;
+}
+
+.word {
+    color: $color-cobalt;
+    font-style: italic;
+    transition:
+        opacity 300ms ease,
+        transform 300ms ease;
+    opacity: 0;
+    transform: translateY(8px);
+}
+
+.word--visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .word {
+        transition: none;
+        opacity: 1;
+        transform: none;
+    }
+}

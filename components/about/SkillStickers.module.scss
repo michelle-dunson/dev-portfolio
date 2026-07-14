@@ -1,0 +1,198 @@
+@use "sass:color";
+@use "../../styles/tokens" as *;
+@use "../../styles/mixins" as *;
+
+.sheet {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: $space-3 $space-4;
+    min-height: 14rem;
+    padding: $space-2;
+    list-style: none;
+}
+
+.sticker {
+    position: relative;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: $space-1;
+    padding: $space-3 $space-5;
+    font-family: $font-display;
+    font-weight: $font-weight-black;
+    line-height: 1.1;
+    text-align: center;
+    color: $color-charcoal;
+    border: 3px solid $color-charcoal;
+    box-shadow: 4px 4px 0 $color-charcoal;
+    transform: rotate(var(--rotate, 0deg));
+    transition:
+        transform $transition-bounce,
+        box-shadow $transition-fast;
+
+    @include hover-capable {
+        &:hover {
+            transform: rotate(calc(var(--rotate, 0deg) + 2deg)) translate(-2px, -3px);
+            box-shadow: 6px 7px 0 $color-charcoal;
+            z-index: 2;
+        }
+    }
+
+    @include reduced-motion {
+        &:hover {
+            transform: rotate(var(--rotate, 0deg));
+            box-shadow: 4px 4px 0 $color-charcoal;
+        }
+    }
+}
+
+.label {
+    letter-spacing: 0.03em;
+}
+
+.emoji {
+    font-size: 1.25em;
+    line-height: 1;
+}
+
+// Shapes
+.sticker--pill {
+    border-radius: $radius-full;
+}
+
+.sticker--squircle {
+    border-radius: $radius-lg;
+}
+
+.sticker--circle {
+    border-radius: 50%;
+    aspect-ratio: 1;
+    padding: $space-4;
+    min-width: 4.5rem;
+}
+
+.sticker--tag {
+    border-radius: $radius-sm $radius-xl $radius-xl $radius-sm;
+    padding-left: $space-8;
+    padding-right: $space-5;
+
+    &::before {
+        content: "";
+        position: absolute;
+        left: $space-3;
+        top: 50%;
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: $color-charcoal;
+        transform: translateY(-50%);
+        opacity: 0.35;
+    }
+}
+
+.sticker--burst {
+    border-radius: 38% 62% 63% 37% / 41% 44% 56% 59%;
+    padding: $space-4 $space-5;
+}
+
+// Sizes
+.sticker--sm {
+    font-size: $font-size-xs;
+    padding: $space-2 $space-4;
+    box-shadow: 3px 3px 0 $color-charcoal;
+
+    &.sticker--circle {
+        min-width: 3.75rem;
+        padding: $space-3;
+    }
+}
+
+.sticker--md {
+    font-size: $font-size-sm;
+}
+
+.sticker--lg {
+    font-size: $font-size-md;
+    padding: $space-4 $space-6;
+    box-shadow: 5px 5px 0 $color-charcoal;
+}
+
+// Fill colors
+.sticker--cobalt.sticker--fill {
+    background: color.adjust($color-cobalt, $lightness: 38%);
+}
+
+.sticker--sunshine.sticker--fill {
+    background: $color-sunshine;
+}
+
+.sticker--mint.sticker--fill {
+    background: color.adjust($color-mint, $lightness: 6%);
+}
+
+.sticker--bubblegum.sticker--fill {
+    background: color.adjust($color-bubblegum, $lightness: 12%);
+    color: white;
+}
+
+.sticker--lavender.sticker--fill {
+    background: color.adjust($color-lavender, $lightness: 10%);
+}
+
+.sticker--charcoal.sticker--fill {
+    background: $color-charcoal;
+    color: $color-cream;
+}
+
+// Outline / paper stickers
+.sticker--outline {
+    background: $color-surface;
+}
+
+.sticker--outline.sticker--sunshine {
+    background: color.adjust($color-sunshine, $lightness: 22%);
+}
+
+.sticker--outline.sticker--mint {
+    background: color.adjust($color-mint, $lightness: 18%);
+}
+
+// Scattered offsets — Gopher-style casual pile
+.sticker:nth-child(1) {
+    margin-top: $space-2;
+}
+
+.sticker:nth-child(2) {
+    margin-top: $space-6;
+}
+
+.sticker:nth-child(3) {
+    margin-top: -$space-2;
+}
+
+.sticker:nth-child(4) {
+    margin-top: $space-4;
+    margin-left: -$space-2;
+}
+
+.sticker:nth-child(5) {
+    margin-top: $space-1;
+}
+
+.sticker:nth-child(6) {
+    margin-top: $space-5;
+    margin-right: $space-2;
+}
+
+.sticker:nth-child(7) {
+    margin-top: -$space-1;
+}
+
+.sticker:nth-child(8) {
+    margin-top: $space-3;
+    margin-left: $space-1;
+}

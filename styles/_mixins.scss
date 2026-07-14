@@ -1,0 +1,53 @@
+@use "tokens" as *;
+
+@mixin breakpoint($breakpoint) {
+    @if $breakpoint == sm {
+        @media (min-width: $breakpoint-sm) {
+            @content;
+        }
+    } @else if $breakpoint == md {
+        @media (min-width: $breakpoint-md) {
+            @content;
+        }
+    } @else if $breakpoint == lg {
+        @media (min-width: $breakpoint-lg) {
+            @content;
+        }
+    } @else if $breakpoint == xl {
+        @media (min-width: $breakpoint-xl) {
+            @content;
+        }
+    }
+}
+
+@mixin focus-ring {
+    outline: 2px solid $color-focus;
+    outline-offset: 3px;
+}
+
+@mixin hover-capable {
+    @media (hover: hover) and (pointer: fine) {
+        @content;
+    }
+}
+
+@mixin reduced-motion {
+    @media (prefers-reduced-motion: reduce) {
+        @content;
+    }
+}
+
+@mixin section-padding {
+    padding-block: $section-padding-y;
+    padding-inline: $space-6;
+
+    @include breakpoint(md) {
+        padding-inline: $space-8;
+    }
+}
+
+@mixin container {
+    width: 100%;
+    max-width: $max-width;
+    margin-inline: auto;
+}

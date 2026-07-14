@@ -1,0 +1,111 @@
+@use "../styles/tokens" as *;
+@use "../styles/mixins" as *;
+@use "../styles/textures" as *;
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+
+    @media (prefers-reduced-motion: reduce) {
+        scroll-behavior: auto;
+    }
+}
+
+body {
+    font-family: $font-body;
+    font-size: $font-size-base;
+    line-height: $line-height-base;
+    color: $color-text;
+    background-color: $color-bg;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+    @include paper-grain;
+}
+
+body.custom-cursor-active {
+    cursor: none;
+
+    a,
+    button,
+    [role="button"] {
+        cursor: none;
+    }
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+    display: block;
+    max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+    font: inherit;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+ul,
+ol {
+    list-style: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: $font-display;
+    line-height: $line-height-tight;
+    font-weight: $font-weight-black;
+}
+
+section {
+    scroll-margin-top: calc(#{$nav-height} + #{$space-8});
+}
+
+:focus-visible {
+    @include focus-ring;
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+.hand {
+    font-family: $font-hand;
+}
+
+.highlight {
+    background: linear-gradient(
+        180deg,
+        transparent 55%,
+        rgba($color-sunshine, 0.55) 55%
+    );
+    padding-inline: 0.1em;
+}

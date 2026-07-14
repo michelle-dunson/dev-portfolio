@@ -1,0 +1,60 @@
+@use "../../styles/tokens" as *;
+@use "../../styles/mixins" as *;
+
+.nav {
+    display: flex;
+    gap: $space-2;
+
+    @include breakpoint(md) {
+        gap: $space-4;
+    }
+}
+
+.link {
+    position: relative;
+    padding: $space-2 $space-3;
+    font-size: $font-size-sm;
+    font-weight: $font-weight-medium;
+    color: $color-text-muted-dark;
+    transition: color $transition-fast;
+
+    @include hover-capable {
+        &:hover {
+            color: $color-text-dark;
+        }
+    }
+
+    &::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: $space-3;
+        right: $space-3;
+        height: 2px;
+        background: $color-accent;
+        transform: scaleX(0);
+        transition: transform $transition-base;
+    }
+}
+
+.link--active {
+    color: $color-text-dark;
+
+    &::after {
+        transform: scaleX(1);
+    }
+}
+
+.linkLabel {
+    @media (max-width: $breakpoint-sm) {
+        display: none;
+    }
+}
+
+.linkShort {
+    display: none;
+
+    @media (max-width: $breakpoint-sm) {
+        display: inline;
+    }
+}

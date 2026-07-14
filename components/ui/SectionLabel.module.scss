@@ -1,0 +1,15 @@
+@use "../../styles/tokens" as *;
+
+.label {
+    display: inline-block;
+    font-size: $font-size-xs;
+    font-weight: $font-weight-bold;
+    text-transform: uppercase;
+    letter-spacing: $letter-spacing-wide;
+    color: $color-cobalt;
+    margin-bottom: $space-4;
+}
+
+.label--accent {
+    color: $color-bubblegum;
+}

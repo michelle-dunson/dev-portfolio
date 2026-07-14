@@ -1,0 +1,148 @@
+@use "tokens" as *;
+@use "mixins" as *;
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-12px) rotate(3deg);
+  }
+}
+
+@keyframes wiggle {
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(-4deg);
+  }
+  75% {
+    transform: rotate(4deg);
+  }
+}
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse-glow {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba($color-accent, 0.35);
+  }
+  50% {
+    box-shadow: 0 0 20px 4px rgba($color-accent, 0.15);
+  }
+}
+
+@keyframes pin-wiggle {
+  0%,
+  100% {
+    transform: translateX(-50%) rotate(0deg);
+  }
+  25% {
+    transform: translateX(-50%) rotate(-8deg);
+  }
+  75% {
+    transform: translateX(-50%) rotate(8deg);
+  }
+}
+
+@keyframes settle-in {
+  from {
+    opacity: 0;
+    transform: rotate(var(--rotation, 0deg)) translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: rotate(var(--rotation, 0deg)) translateY(0);
+  }
+}
+
+@keyframes gentle-bob {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+@mixin animate-float {
+  animation: float 4s ease-in-out infinite;
+
+  @media (prefers-reduced-motion: reduce) {
+    animation: none;
+  }
+}
+
+@mixin animate-fade-in-up($delay: 0ms) {
+  animation: fade-in-up 0.6s ease forwards;
+  animation-delay: $delay;
+
+  @media (prefers-reduced-motion: reduce) {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@mixin animate-settle($delay: 0ms) {
+  animation: settle-in 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  animation-delay: $delay;
+
+  @media (prefers-reduced-motion: reduce) {
+    animation: none;
+    opacity: 1;
+  }
+}
+
+@mixin animate-bob {
+  animation: gentle-bob 3s ease-in-out infinite;
+
+  @media (prefers-reduced-motion: reduce) {
+    animation: none;
+  }
+}
+
+@mixin pin-wiggle-on-hover {
+  @include hover-capable {
+    .wrapper:hover & {
+      animation: pin-wiggle 0.45s ease;
+
+      @media (prefers-reduced-motion: reduce) {
+        animation: none;
+      }
+    }
+  }
+}
+
+@mixin card-tilt {
+  transition: transform $transition-slow, box-shadow $transition-base;
+
+  @include hover-capable {
+    &:hover {
+      transform: translateY(-6px) rotate(-1deg);
+      box-shadow: $shadow-card-hover;
+    }
+  }
+
+  @include reduced-motion {
+    transition: box-shadow $transition-base;
+
+    &:hover {
+      transform: none;
+    }
+  }
+}

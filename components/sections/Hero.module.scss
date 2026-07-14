@@ -1,0 +1,249 @@
+@use "sass:color";
+@use "../../styles/tokens" as *;
+@use "../../styles/mixins" as *;
+@use "../../styles/animations" as *;
+
+.hero {
+    position: relative;
+    min-height: 100vh;
+    padding: calc(#{$nav-height} + #{$space-12}) $space-6 $space-16;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    @include breakpoint(md) {
+        padding-inline: $space-8;
+    }
+}
+
+.colorBlock {
+    position: absolute;
+    top: 15%;
+    right: -8%;
+    width: min(55vw, 520px);
+    height: min(55vw, 520px);
+    background: linear-gradient(
+        145deg,
+        $color-lavender 0%,
+        $color-bubblegum 50%,
+        $color-sunshine 100%
+    );
+    border-radius: 45% 55% 60% 40% / 50% 45% 55% 50%;
+    opacity: 0.35;
+    @include animate-float;
+
+    @include reduced-motion {
+        animation: none;
+    }
+}
+
+.inner {
+    @include container;
+    position: relative;
+    z-index: $z-content;
+    display: grid;
+    gap: $space-12;
+    align-items: center;
+
+    @include breakpoint(lg) {
+        grid-template-columns: 1.2fr 0.8fr;
+        gap: $space-8;
+    }
+}
+
+.main {
+    position: relative;
+}
+
+.nameCard {
+    position: relative;
+    display: inline-block;
+    margin-bottom: $space-8;
+    padding: $space-4 $space-6;
+    background: $color-surface;
+    border-radius: $radius-md;
+    box-shadow: $shadow-paper;
+    transform: rotate(-2deg);
+}
+
+.nameTape {
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%) rotate(1deg);
+}
+
+.name {
+    font-size: $font-size-xl;
+    color: $color-cobalt;
+    margin-bottom: $space-1;
+}
+
+.role {
+    font-size: $font-size-sm;
+    font-weight: $font-weight-bold;
+    text-transform: uppercase;
+    letter-spacing: $letter-spacing-wide;
+    color: $color-charcoal-muted;
+}
+
+.headline {
+    font-size: $font-size-hero;
+    line-height: $line-height-tight;
+    color: $color-charcoal;
+    margin-bottom: $space-4;
+    max-width: 75vw;
+    @include animate-fade-in-up(80ms);
+}
+
+.headlineLine {
+    display: block;
+}
+
+.rotatingLine {
+    display: block;
+    font-size: $font-size-display;
+    color: $color-cobalt;
+    @include animate-fade-in-up(140ms);
+}
+
+.subline {
+    font-size: $font-size-md;
+    line-height: $line-height-loose;
+    color: $color-text-muted;
+    max-width: 40rem;
+    margin-bottom: $space-8;
+    @include animate-fade-in-up(200ms);
+}
+
+.scrollHint {
+    font-size: $font-size-lg;
+    color: $color-bubblegum;
+    @include animate-bob;
+}
+
+.collage {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-areas:
+        "cardA cardB"
+        "egg egg";
+    gap: $space-4;
+    align-items: start;
+    justify-items: center;
+    width: 100%;
+    max-width: 22rem;
+    margin-inline: auto;
+
+    @include breakpoint(md) {
+        max-width: 26rem;
+        gap: $space-5;
+    }
+
+    @include breakpoint(lg) {
+        max-width: none;
+        margin-inline: 0;
+        min-height: 18rem;
+        min-width: 17rem;
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas:
+            "cardA cardA"
+            "cardB cardB";
+        align-items: end;
+    }
+}
+
+.collageCard {
+    position: relative;
+    width: 100%;
+    max-width: 13rem;
+    padding: $space-5 $space-6 $space-6;
+    background: $color-surface;
+    border-radius: $radius-md;
+    box-shadow: $shadow-paper;
+    transform: rotate(4deg);
+
+    &:first-of-type {
+        grid-area: cardA;
+        justify-self: end;
+        z-index: 1;
+    }
+}
+
+.collageCardAlt {
+    grid-area: cardB;
+    justify-self: start;
+    margin-top: $space-6;
+    transform: rotate(-5deg);
+    background: color.adjust($color-sunshine, $lightness: 12%);
+    z-index: 2;
+
+    @include breakpoint(lg) {
+        margin-top: $space-10;
+    }
+}
+
+.collageTape {
+    position: absolute;
+    top: -10px;
+    left: 20%;
+    transform: rotate(-4deg);
+}
+
+.collageEmoji {
+    font-size: $font-size-2xl;
+    display: block;
+    margin-bottom: $space-2;
+}
+
+.collageCaption {
+    font-size: $font-size-md;
+    color: $color-charcoal;
+    line-height: $line-height-base;
+}
+
+.stickerStar {
+    position: absolute;
+    top: 15%;
+    left: 40%;
+    color: $color-sunshine;
+    transform: rotate(-15deg);
+    z-index: $z-decor;
+    @include animate-bob;
+
+    @include breakpoint(lg) {
+        top: 15%;
+        left: 6%;
+    }
+}
+
+.stickerSmile {
+    position: absolute;
+    top: 25%;
+    right: 12%;
+    color: $color-bubblegum;
+    transform: rotate(12deg);
+    z-index: $z-decor;
+
+    @include breakpoint(lg) {
+        top: 35%;
+        right: 22%;
+    }
+}
+
+.stickerSparkle {
+    position: absolute;
+    bottom: 20%;
+    left: 42%;
+    color: $color-cobalt;
+    transform: rotate(8deg);
+    z-index: $z-decor;
+}
+
+@media (max-width: $breakpoint-lg) {
+    .stickerSparkle,
+    .stickerSmile {
+        display: none;
+    }
+}

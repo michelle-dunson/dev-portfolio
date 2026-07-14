@@ -1,0 +1,43 @@
+@use "../../styles/tokens" as *;
+@use "../../styles/mixins" as *;
+
+.header {
+    position: sticky;
+    top: 0;
+    z-index: $z-header;
+    height: $header-height;
+    background: rgba($color-bg-cream, 0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid $color-border-light;
+}
+
+.inner {
+    @include container;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+    padding-inline: $space-6;
+
+    @include breakpoint(md) {
+        padding-inline: $space-8;
+    }
+}
+
+.logo {
+    font-family: $font-display;
+    font-size: $font-size-md;
+    font-weight: $font-weight-bold;
+    color: $color-text-dark;
+    transition: color $transition-fast;
+
+    @include hover-capable {
+        &:hover {
+            color: $color-accent;
+        }
+    }
+}
+
+.logoAccent {
+    color: $color-accent;
+}

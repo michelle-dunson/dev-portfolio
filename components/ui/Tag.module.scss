@@ -1,0 +1,16 @@
+@use "../../styles/tokens" as *;
+
+.tag {
+    display: inline-block;
+    padding: $space-1 $space-3;
+    font-size: $font-size-xs;
+    font-weight: $font-weight-medium;
+    color: $color-text-muted;
+    background-color: $color-bg-elevated;
+    border: 1px solid $color-border;
+    border-radius: $radius-full;
+    transition:
+        transform $transition-fast,
+        color $transition-fast,
+        border-color $transition-fast;
+}

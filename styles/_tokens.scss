@@ -1,0 +1,107 @@
+// 90s scrapbook palette — bright, curated, not muted startup
+$color-cobalt: #1e56a0;
+$color-sunshine: #ffd93d;
+$color-mint: #6eebad;
+$color-bubblegum: #ff6b9d;
+$color-lavender: #b794f6;
+$color-cream: #fff9f0;
+$color-cream-dark: #f5ebe0;
+$color-charcoal: #2d2a32;
+$color-charcoal-muted: #5c5766;
+
+// Semantic aliases
+$color-bg: $color-cream;
+$color-bg-elevated: $color-cream-dark;
+$color-bg-cream: $color-cream;
+$color-surface: #ffffff;
+$color-text: $color-charcoal;
+$color-text-dark: $color-charcoal;
+$color-text-muted: $color-charcoal-muted;
+$color-text-muted-dark: $color-charcoal-muted;
+$color-accent: $color-bubblegum;
+$color-accent-alt: $color-sunshine;
+$color-accent-tertiary: $color-cobalt;
+$color-accent-mint: $color-mint;
+$color-accent-lavender: $color-lavender;
+$color-border: rgba($color-charcoal, 0.12);
+$color-border-light: rgba($color-charcoal, 0.08);
+$color-focus: $color-cobalt;
+
+// Typography
+$font-display: var(--font-display), "Georgia", serif;
+$font-body: var(--font-body), system-ui, sans-serif;
+$font-hand: var(--font-hand), "Fuzzy Bubbles", cursive;
+
+$font-size-xs: 0.75rem;
+$font-size-sm: 0.875rem;
+$font-size-base: 1rem;
+$font-size-md: 1.125rem;
+$font-size-lg: 1.25rem;
+$font-size-xl: 1.5rem;
+$font-size-2xl: 2rem;
+$font-size-3xl: 2.75rem;
+$font-size-4xl: 3.5rem;
+$font-size-hero: clamp(2.5rem, 6vw, 5rem);
+$font-size-display: clamp(3rem, 8vw, 7rem);
+
+$line-height-tight: 1.05;
+$line-height-base: 1.65;
+$line-height-loose: 1.85;
+
+$font-weight-normal: 400;
+$font-weight-medium: 500;
+$font-weight-bold: 700;
+$font-weight-black: 800;
+$letter-spacing-wide: 0.1em;
+
+// Spacing
+$space-1: 0.25rem;
+$space-2: 0.5rem;
+$space-3: 0.75rem;
+$space-4: 1rem;
+$space-5: 1.25rem;
+$space-6: 1.5rem;
+$space-8: 2rem;
+$space-10: 2.5rem;
+$space-12: 3rem;
+$space-16: 4rem;
+$space-20: 5rem;
+$space-24: 6rem;
+
+// Layout
+$max-width: 76rem;
+$nav-height: 3.25rem;
+$header-height: $nav-height;
+$section-padding-y: clamp(5rem, 12vw, 8rem);
+
+// Breakpoints
+$breakpoint-sm: 480px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 1024px;
+$breakpoint-xl: 1280px;
+
+// Border radius — rounded, playful
+$radius-sm: 0.5rem;
+$radius-md: 1rem;
+$radius-lg: 1.5rem;
+$radius-xl: 2rem;
+$radius-full: 9999px;
+
+// Z-index
+$z-nav: 100;
+$z-cursor: 200;
+$z-decor: 1;
+$z-content: 2;
+
+// Transitions
+$transition-fast: 150ms ease;
+$transition-base: 280ms cubic-bezier(0.22, 1, 0.36, 1);
+$transition-slow: 450ms cubic-bezier(0.22, 1, 0.36, 1);
+$transition-bounce: 500ms cubic-bezier(0.34, 1.56, 0.64, 1);
+
+// Shadows — paper-like, soft
+$shadow-paper: 0 2px 8px rgba($color-charcoal, 0.08), 0 8px 24px rgba($color-charcoal, 0.06);
+$shadow-paper-hover: 0 8px 20px rgba($color-charcoal, 0.12), 0 20px 48px rgba($color-charcoal, 0.1);
+$shadow-sticker: 0 3px 0 rgba($color-charcoal, 0.12);
+$shadow-card: $shadow-paper;
+$shadow-card-hover: $shadow-paper-hover;

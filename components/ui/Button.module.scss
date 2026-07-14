@@ -1,0 +1,81 @@
+@use "sass:color";
+@use "../../styles/tokens" as *;
+@use "../../styles/mixins" as *;
+
+.button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: $space-2;
+    padding: $space-4 $space-8;
+    font-family: $font-body;
+    font-size: $font-size-sm;
+    font-weight: $font-weight-bold;
+    border-radius: $radius-full;
+    border: 2px solid $color-charcoal;
+    transition:
+        background-color $transition-base,
+        color $transition-base,
+        transform $transition-bounce,
+        box-shadow $transition-base;
+    text-decoration: none;
+    box-shadow: $shadow-sticker;
+
+    @include hover-capable {
+        &:hover {
+            transform: translateY(-3px);
+            box-shadow: $shadow-paper-hover;
+        }
+
+        &:active {
+            transform: translateY(1px);
+            box-shadow: none;
+        }
+    }
+
+    @include reduced-motion {
+        &:hover,
+        &:active {
+            transform: none;
+        }
+    }
+}
+
+.button--primary {
+    background-color: $color-bubblegum;
+    color: white;
+
+    @include hover-capable {
+        &:hover {
+            background-color: color.adjust($color-bubblegum, $lightness: -6%);
+        }
+    }
+}
+
+.button--cobalt {
+    background-color: $color-cobalt;
+    color: white;
+    border-color: color.adjust($color-cobalt, $lightness: -10%);
+
+    @include hover-capable {
+        &:hover {
+            background-color: color.adjust($color-cobalt, $lightness: -8%);
+        }
+    }
+}
+
+.button--ghost {
+    background-color: $color-surface;
+    color: $color-charcoal;
+
+    @include hover-capable {
+        &:hover {
+            background-color: $color-sunshine;
+        }
+    }
+}
+
+.button--small {
+    padding: $space-2 $space-5;
+    font-size: $font-size-xs;
+}

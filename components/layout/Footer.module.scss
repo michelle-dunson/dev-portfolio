@@ -1,0 +1,38 @@
+@use "../../styles/tokens" as *;
+@use "../../styles/mixins" as *;
+
+.footer {
+    padding: $space-10 $space-6;
+    background: $color-charcoal;
+    color: rgba($color-cream, 0.75);
+}
+
+.inner {
+    @include container;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: $space-4;
+    text-align: center;
+}
+
+.stamp {
+    font-family: $font-display;
+    font-size: $font-size-sm;
+    font-weight: $font-weight-black;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: $color-sunshine;
+    padding: $space-2 $space-4;
+    border: 2px dashed rgba($color-sunshine, 0.5);
+    border-radius: $radius-sm;
+    transform: rotate(-2deg);
+}
+
+.text {
+    font-size: $font-size-sm;
+}
+
+.accent {
+    color: $color-bubblegum;
+}

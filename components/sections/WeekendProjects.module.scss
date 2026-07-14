@@ -1,0 +1,29 @@
+@use "../../styles/tokens" as *;
+@use "../../styles/mixins" as *;
+
+.header {
+    @include container;
+    margin-bottom: $space-10;
+    padding-inline: $space-6;
+
+    @include breakpoint(md) {
+        padding-inline: $space-8;
+    }
+}
+
+.title {
+    font-size: $font-size-3xl;
+    color: $color-charcoal;
+    margin-bottom: $space-4;
+
+    @include breakpoint(md) {
+        font-size: clamp(2.5rem, 5vw, 4rem);
+    }
+}
+
+.subtitle {
+    font-size: $font-size-md;
+    color: $color-charcoal-muted;
+    max-width: 50ch;
+    line-height: $line-height-loose;
+}
