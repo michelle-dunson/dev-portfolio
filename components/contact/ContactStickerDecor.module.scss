@@ -2,20 +2,23 @@
 @use "../../styles/tokens" as *;
 @use "../../styles/mixins" as *;
 
+.decor {
+    position: absolute;
+    inset: 0;
+    z-index: 3;
+    pointer-events: none;
+    overflow: hidden;
+}
+
 .sheet {
     position: relative;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-    gap: $space-3 $space-4;
-    min-height: 14rem;
-    padding: $space-2;
+    width: 100%;
+    height: 100%;
     list-style: none;
 }
 
 .sticker {
-    position: relative;
+    position: absolute;
     display: inline-flex;
     flex-direction: column;
     align-items: center;
@@ -28,25 +31,36 @@
     text-align: center;
     color: $color-charcoal;
     border: 3px solid $color-charcoal;
-    box-shadow: 4px 4px 0 $color-charcoal;
-    transform: rotate(var(--rotate, 0deg));
-    transition:
-        transform $transition-bounce,
-        box-shadow $transition-fast;
+    box-shadow: 4px 4px 0 rgba($color-charcoal, 0.85);
+    opacity: 0;
+    transform: rotate(var(--rotate, 0deg)) scale(0.55);
+}
 
-    @include hover-capable {
-        &:hover {
-            transform: rotate(calc(var(--rotate, 0deg) + 2deg)) translate(-2px, -3px);
-            box-shadow: 6px 7px 0 $color-charcoal;
-            z-index: 2;
-        }
+.decor--visible .sticker {
+    animation: sticker-drop-in 0.55s cubic-bezier(0.34, 1.45, 0.64, 1) forwards;
+    animation-delay: calc(var(--index) * 140ms + 180ms);
+}
+
+@keyframes sticker-drop-in {
+    from {
+        opacity: 0;
+        transform: rotate(var(--rotate, 0deg)) scale(0.55) translateY(-28px);
     }
 
-    @include reduced-motion {
-        &:hover {
-            transform: rotate(var(--rotate, 0deg));
-            box-shadow: 4px 4px 0 $color-charcoal;
-        }
+    to {
+        opacity: 0.92;
+        transform: rotate(var(--rotate, 0deg)) scale(1) translateY(0);
+    }
+}
+
+@include reduced-motion {
+    .sticker {
+        opacity: 0.92;
+        transform: rotate(var(--rotate, 0deg));
+    }
+
+    .decor--visible .sticker {
+        animation: none;
     }
 }
 
@@ -103,7 +117,7 @@
 .sticker--sm {
     font-size: $font-size-xs;
     padding: $space-2 $space-4;
-    box-shadow: 3px 3px 0 $color-charcoal;
+    box-shadow: 3px 3px 0 rgba($color-charcoal, 0.85);
 
     &.sticker--circle {
         min-width: 3.75rem;
@@ -118,7 +132,7 @@
 .sticker--lg {
     font-size: $font-size-md;
     padding: $space-4 $space-6;
-    box-shadow: 5px 5px 0 $color-charcoal;
+    box-shadow: 5px 5px 0 rgba($color-charcoal, 0.85);
 }
 
 // Fill colors
@@ -161,48 +175,56 @@
     background: color.adjust($color-mint, $lightness: 18%);
 }
 
-// Scattered offsets — Gopher-style casual pile
-.sticker:nth-child(1) {
-    margin-top: $space-2;
-}
-
-.sticker:nth-child(2) {
-    margin-top: $space-6;
-}
-
-.sticker:nth-child(3) {
-    margin-top: -$space-2;
-}
-
-.sticker:nth-child(4) {
-    margin-top: $space-4;
-    margin-left: -$space-2;
-}
-
-.sticker:nth-child(5) {
-    margin-top: $space-1;
-}
-
-.sticker:nth-child(6) {
-    margin-top: $space-5;
-    margin-right: $space-2;
-}
-
-.sticker:nth-child(7) {
-    margin-top: -$space-1;
-}
-
-.sticker:nth-child(8) {
-    margin-top: $space-3;
-    margin-left: $space-1;
-}
-
+// Mobile — tuck stickers further to edges, hide a few that crowd the postcard
 @media (max-width: $breakpoint-md) {
-    .sticker:nth-child(4) {
-        margin-left: 0;
+    .sticker {
+        transform: rotate(var(--rotate, 0deg)) scale(0.85);
     }
 
-    .sticker:nth-child(6) {
-        margin-right: 0;
+    .decor--visible .sticker {
+        animation-name: sticker-drop-in-mobile;
+    }
+
+    @keyframes sticker-drop-in-mobile {
+        from {
+            opacity: 0;
+            transform: rotate(var(--rotate, 0deg)) scale(0.65) translateY(-20px);
+        }
+
+        to {
+            opacity: 0.88;
+            transform: rotate(var(--rotate, 0deg)) scale(0.85) translateY(0);
+        }
+    }
+
+    .sticker--scss,
+    .sticker--a11y,
+    .sticker--craft {
+        display: none;
+    }
+
+    .sticker--react {
+        top: 6% !important;
+        left: 2% !important;
+    }
+
+    .sticker--typescript {
+        top: 8% !important;
+        right: 2% !important;
+    }
+
+    .sticker--motion {
+        bottom: 22% !important;
+        left: 2% !important;
+    }
+
+    .sticker--apis {
+        bottom: 8% !important;
+        left: 4% !important;
+    }
+
+    .sticker--next {
+        bottom: 10% !important;
+        right: 2% !important;
     }
 }

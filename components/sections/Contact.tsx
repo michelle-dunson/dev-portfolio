@@ -1,4 +1,5 @@
 import { CONTACT_COPY, SITE_META } from "@/lib/constants";
+import ContactStickerDecor from "@/components/contact/ContactStickerDecor";
 import Button from "@/components/ui/Button";
 import Tape from "@/components/ui/Tape";
 import styles from "./Contact.module.scss";
@@ -6,6 +7,7 @@ import styles from "./Contact.module.scss";
 export default function Contact() {
     return (
         <section id="contact" className={styles.section}>
+            <ContactStickerDecor />
             <div className={styles.inner}>
                 <div className={styles.postcard}>
                     <Tape length="long" color="mint" className={styles.tape} />

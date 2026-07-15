@@ -4,6 +4,8 @@
 
 .section {
     @include section-padding;
+    position: relative;
+    overflow: hidden;
     background: $color-cobalt;
     background-image: radial-gradient(
         circle at 10% 90%,
@@ -14,6 +16,8 @@
 
 .inner {
     @include container;
+    position: relative;
+    z-index: $z-content;
     display: flex;
     justify-content: center;
 }

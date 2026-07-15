@@ -162,23 +162,6 @@
     color: $color-charcoal;
 }
 
-.skillsBlock {
-    padding: $space-6 $space-4 $space-8;
-    background: rgba($color-surface, 0.85);
-    border-radius: $radius-lg;
-    border: 3px solid $color-charcoal;
-    box-shadow: 6px 6px 0 rgba($color-charcoal, 0.15);
-    overflow-x: clip;
-}
-
-.skillsTitle {
-    font-family: $font-display;
-    font-size: $font-size-lg;
-    font-weight: $font-weight-black;
-    margin-bottom: $space-6;
-    color: $color-charcoal;
-}
-
 .signature {
     align-self: flex-end;
     font-size: $font-size-lg;

@@ -30,14 +30,13 @@ export const ABOUT_COPY = {
   label: "About me",
   title: "Hi, I'm Michelle.",
   paragraphs: [
-    "I enjoy building the kind of websites that make people pause for a second and think, \"That's clever.\"",
+    "I enjoy building the kind of websites that make people stop and think, \"That's clever.\"",
     "Most of my projects start with a simple question:",
     "What if choosing a knitting pattern felt like a game show?",
     "What if your birthday could generate the soundtrack to your life?",
     "I love combining APIs, animation, and thoughtful UI to turn strange ideas into polished projects.",
     "When I'm not coding, you can find me crafting with yarn, playing video games, or trying and failing to convince myself that I don't need yet another hobby.",
   ],
-  skillsTitle: "Sticker sheet",
   obsessionsTitle: "Current obsessions",
 };
 
@@ -50,6 +49,7 @@ export const SKILL_STICKERS: SkillSticker[] = [
     size: "lg",
     rotation: -7,
     emoji: "⚛️",
+    placement: { top: "8%", left: "4%" },
   },
   {
     id: "typescript",
@@ -58,6 +58,7 @@ export const SKILL_STICKERS: SkillSticker[] = [
     shape: "tag",
     size: "md",
     rotation: 6,
+    placement: { top: "10%", right: "5%" },
   },
   {
     id: "scss",
@@ -67,6 +68,7 @@ export const SKILL_STICKERS: SkillSticker[] = [
     size: "md",
     rotation: -4,
     emoji: "🎨",
+    placement: { top: "42%", left: "12%" },
   },
   {
     id: "motion",
@@ -75,6 +77,7 @@ export const SKILL_STICKERS: SkillSticker[] = [
     shape: "circle",
     size: "sm",
     rotation: 9,
+    placement: { bottom: "26%", left: "6%" },
   },
   {
     id: "apis",
@@ -85,6 +88,7 @@ export const SKILL_STICKERS: SkillSticker[] = [
     variant: "outline",
     rotation: -5,
     emoji: "🔌",
+    placement: { bottom: "10%", left: "14%" },
   },
   {
     id: "a11y",
@@ -94,6 +98,7 @@ export const SKILL_STICKERS: SkillSticker[] = [
     size: "sm",
     variant: "outline",
     rotation: 4,
+    placement: { top: "38%", right: "3%" },
   },
   {
     id: "next",
@@ -102,6 +107,7 @@ export const SKILL_STICKERS: SkillSticker[] = [
     shape: "squircle",
     size: "lg",
     rotation: -3,
+    placement: { bottom: "16%", right: "6%" },
   },
   {
     id: "craft",
@@ -111,6 +117,7 @@ export const SKILL_STICKERS: SkillSticker[] = [
     size: "md",
     rotation: 8,
     emoji: "✂️",
+    placement: { bottom: "28%", right: "18%" },
   },
 ];
 
@@ -118,8 +125,8 @@ export const OBSESSION_NOTES: ObsessionNote[] = [
   {
     id: "knitting",
     emoji: "🧶",
-    label: "Knitting",
-    note: "Currently making a blanket I'll finish in 2028.",
+    label: "Fiber arts",
+    note: "Crocheting a blanket I'll finish in 2028.",
     color: "bubblegum",
     rotation: -3,
   },

@@ -39,6 +39,12 @@ export interface SkillSticker {
   size?: "sm" | "md" | "lg";
   rotation?: number;
   emoji?: string;
+  placement: {
+    top?: string;
+    left?: string;
+    right?: string;
+    bottom?: string;
+  };
 }
 
 export interface ObsessionNote {

@@ -1,5 +1,4 @@
 import { ABOUT_COPY, OBSESSION_NOTES, SITE_META } from "@/lib/constants";
-import SkillStickers from "@/components/about/SkillStickers";
 import Tape from "@/components/ui/Tape";
 import styles from "./About.module.scss";
 
@@ -80,13 +79,6 @@ export default function About() {
                                 </li>
                             ))}
                         </ul>
-                    </div>
-
-                    <div className={styles.skillsBlock}>
-                        <h3 className={styles.skillsTitle}>
-                            {ABOUT_COPY.skillsTitle}
-                        </h3>
-                        <SkillStickers />
                     </div>
 
                     <p className={`hand ${styles.signature}`}>
