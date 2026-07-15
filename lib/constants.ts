@@ -31,7 +31,7 @@ export const ABOUT_COPY = {
   title: "Hi, I'm Michelle.",
   paragraphs: [
     "I enjoy building the kind of websites that make people pause for a second and think, \"That's clever.\"",
-    "Most of my projects start with a tiny question:",
+    "Most of my projects start with a simple question:",
     "What if choosing a knitting pattern felt like a game show?",
     "What if your birthday could generate the soundtrack to your life?",
     "I love combining APIs, animation, and thoughtful UI to turn strange ideas into polished projects.",

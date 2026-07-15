@@ -196,3 +196,13 @@
     margin-top: $space-3;
     margin-left: $space-1;
 }
+
+@media (max-width: $breakpoint-md) {
+    .sticker:nth-child(4) {
+        margin-left: 0;
+    }
+
+    .sticker:nth-child(6) {
+        margin-right: 0;
+    }
+}

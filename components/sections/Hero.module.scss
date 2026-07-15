@@ -5,7 +5,7 @@
 
 .hero {
     position: relative;
-    min-height: 100vh;
+    min-height: 80vh;
     padding: calc(#{$nav-height} + #{$space-12}) $space-6 $space-16;
     overflow: hidden;
     display: flex;
@@ -44,16 +44,22 @@
     z-index: $z-content;
     display: grid;
     gap: $space-12;
-    align-items: center;
+    align-items: start;
 
-    @include breakpoint(lg) {
-        grid-template-columns: 1.2fr 0.8fr;
-        gap: $space-8;
+    // @include breakpoint(lg) {
+    //     grid-template-columns: 1.7fr 0.3fr;
+    //     gap: $space-8;
+    // }
+
+    @include breakpoint(xl) {
+        grid-template-columns: 1.6fr 0.4fr;
+        gap: $space-12;
     }
 }
 
 .main {
     position: relative;
+    min-width: 0;
 }
 
 .nameCard {
@@ -89,12 +95,17 @@
 }
 
 .headline {
-    font-size: $font-size-hero;
+    font-size: $font-size-2xl;
     line-height: $line-height-tight;
     color: $color-charcoal;
     margin-bottom: $space-4;
-    max-width: 75vw;
+    max-width: 100%;
     @include animate-fade-in-up(80ms);
+
+    @include breakpoint(md) {
+        font-size: $font-size-hero;
+        max-width: 70vw;
+    }
 }
 
 .headlineLine {
@@ -103,9 +114,14 @@
 
 .rotatingLine {
     display: block;
-    font-size: $font-size-display;
+    max-width: 100%;
+    font-size: clamp(1.625rem, 8vw + 0.25rem, #{$font-size-3xl});
     color: $color-cobalt;
     @include animate-fade-in-up(140ms);
+
+    @include breakpoint(md) {
+        font-size: $font-size-display;
+    }
 }
 
 .subline {
@@ -125,10 +141,8 @@
 
 .collage {
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    grid-template-areas:
-        "cardA cardB"
-        "egg egg";
+    grid-template-columns: auto;
+    grid-template-areas: "cardA cardB";
     gap: $space-4;
     align-items: start;
     justify-items: center;
@@ -137,20 +151,18 @@
     margin-inline: auto;
 
     @include breakpoint(md) {
-        max-width: 26rem;
-        gap: $space-5;
+        margin: 0;
+        justify-self: end;
     }
 
-    @include breakpoint(lg) {
-        max-width: none;
-        margin-inline: 0;
-        min-height: 18rem;
-        min-width: 17rem;
-        grid-template-columns: 1fr 1fr;
+    @include breakpoint(xl) {
+        grid-template-columns: 1fr;
         grid-template-areas:
-            "cardA cardA"
-            "cardB cardB";
+            "cardA"
+            "cardB";
         align-items: end;
+        justify-items: end;
+        margin-top: 1rem;
     }
 }
 
@@ -213,8 +225,7 @@
     @include animate-bob;
 
     @include breakpoint(lg) {
-        top: 15%;
-        left: 6%;
+        left: 25%;
     }
 }
 
@@ -227,14 +238,13 @@
     z-index: $z-decor;
 
     @include breakpoint(lg) {
-        top: 35%;
-        right: 22%;
+        right: 35%;
     }
 }
 
 .stickerSparkle {
     position: absolute;
-    bottom: 20%;
+    bottom: 18%;
     left: 42%;
     color: $color-cobalt;
     transform: rotate(8deg);

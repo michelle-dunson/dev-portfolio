@@ -12,6 +12,7 @@
 
 html {
     scroll-behavior: smooth;
+    overflow-x: clip;
 
     @media (prefers-reduced-motion: reduce) {
         scroll-behavior: auto;
@@ -26,8 +27,12 @@ body {
     background-color: $color-bg;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    overflow-x: hidden;
+    overflow-x: clip;
     @include paper-grain;
+}
+
+main {
+    overflow-x: clip;
 }
 
 body.custom-cursor-active {

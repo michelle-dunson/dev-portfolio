@@ -1,9 +1,23 @@
 @use "../../styles/tokens" as *;
 
 .wrapper {
+    position: relative;
     display: inline-grid;
     vertical-align: bottom;
     white-space: nowrap;
+    max-width: 100%;
+}
+
+@media (max-width: $breakpoint-md) {
+    .wrapper {
+        display: block;
+    }
+
+    .sizer {
+        position: absolute;
+        height: 0;
+        overflow: hidden;
+    }
 }
 
 .sizer,
