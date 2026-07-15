@@ -152,7 +152,7 @@ export const OBSESSION_NOTES: ObsessionNote[] = [
 export const CONTACT_COPY = {
   label: "Say hello",
   title: "Let's make something weird together",
-  subtitle: "Open to agency roles where creativity matters as much as code.",
+  subtitle: "Open to agency roles, product work, freelance projects, or just a chat.",
   emailCta: "Send me a note",
 };
 
