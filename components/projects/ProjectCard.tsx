@@ -9,12 +9,14 @@ interface ProjectCardProps {
     project: WeekendProject;
     rotation?: number;
     settleDelay?: number;
+    imageSizes?: string;
 }
 
 export default function ProjectCard({
     project,
     rotation = 0,
     settleDelay = 0,
+    imageSizes = "(max-width: 768px) 50vw, 256px",
 }: ProjectCardProps) {
     const initial = project.title.charAt(0);
     const accentColor = project.accentColor ?? "#7f5af0";
@@ -53,7 +55,7 @@ export default function ProjectCard({
                             src={project.thumbnail!}
                             alt=""
                             fill
-                            sizes="(max-width: 768px) 50vw, 256px"
+                            sizes={imageSizes}
                             className={styles.photoImage}
                         />
                     ) : (
