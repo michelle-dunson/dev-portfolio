@@ -7,7 +7,6 @@ export default function Footer() {
     return (
         <footer className={styles.footer}>
             <div className={styles.inner}>
-                <p className={styles.stamp}>Handmade with care</p>
                 <p className={styles.text}>
                     Built with too much coffee and not enough sleep.
                 </p>

@@ -55,7 +55,7 @@ export const SKILL_STICKERS: SkillSticker[] = [
     id: "typescript",
     label: "TypeScript",
     color: "lavender",
-    shape: "tag",
+    shape: "burst",
     size: "md",
     rotation: 6,
     placement: { top: "10%", right: "5%" },
@@ -68,7 +68,7 @@ export const SKILL_STICKERS: SkillSticker[] = [
     size: "md",
     rotation: -4,
     emoji: "🎨",
-    placement: { top: "42%", left: "12%" },
+    placement: { top: "40%", left: "12%" },
   },
   {
     id: "motion",

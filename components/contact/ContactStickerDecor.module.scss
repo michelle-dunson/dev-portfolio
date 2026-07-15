@@ -197,8 +197,8 @@
         }
     }
 
+    .sticker--motion,
     .sticker--scss,
-    .sticker--a11y,
     .sticker--craft {
         display: none;
     }
@@ -213,18 +213,13 @@
         right: 2% !important;
     }
 
-    .sticker--motion {
-        bottom: 22% !important;
-        left: 2% !important;
-    }
-
     .sticker--apis {
         bottom: 8% !important;
         left: 4% !important;
     }
 
     .sticker--next {
-        bottom: 10% !important;
+        bottom: 8% !important;
         right: 2% !important;
     }
 }
