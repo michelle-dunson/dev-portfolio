@@ -30,4 +30,13 @@ export const weekendProjects: WeekendProject[] = [
         tags: ["React", "Spotify API", "Next.js", "Typescript", "Data Visualization"],
         accentColor: "#e53170",
     },
+    {
+        id: "woordle",
+        title: "Woordle",
+        tagline: "Wordle, but in Dutch. Why Dutch? Waarom niet?",
+        url: "https://woordle-game.vercel.app/",
+        thumbnail: "/images/projects/woordle.png",
+        tags: ["React", "Typescript", "Next.js", "Game Logic", "CSS Animations"],
+        accentColor: "#1e56a0",
+    },
 ];

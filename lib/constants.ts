@@ -172,7 +172,7 @@ export const ROTATING_HERO_WORDS = [
 ];
 
 export const PROJECTS_SECTION_COPY = {
-  label: "Weekend builds",
+  label: "Weekend projects",
   title: "Pinned to the board",
   subtitle:
     "A few of my favorite builds, and a peek into the life of a serial hobby collector.",

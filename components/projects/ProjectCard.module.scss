@@ -37,7 +37,7 @@ $polaroid-muted: #7a6f63;
 .card {
     position: relative;
     display: block;
-    padding: $space-3 $space-3 $space-8;
+    padding: $space-3 $space-3 $space-6;
     background: $polaroid-paper;
     box-shadow:
         0 2px 4px rgba(0, 0, 0, 0.12),
@@ -121,6 +121,17 @@ $polaroid-muted: #7a6f63;
         #7c4dff 100%
     );
     border-color: color.adjust(#7c4dff, $lightness: -10%);
+}
+
+.wrapper:nth-child(4n) .pinHead {
+    background: radial-gradient(
+        circle at 35% 30%,
+        #a9c7ef 0%,
+        #205dac 45%,
+        #1e56a0 100%
+    );
+    border-color: color.adjust(#1e56a0, $lightness: -10%);
+
 }
 
 .photo {
